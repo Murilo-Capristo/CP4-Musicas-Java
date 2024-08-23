@@ -12,6 +12,8 @@ public class Musica {
     private GeneroEnum genero;
     public static Set<Musica> musicas = new HashSet<>() ;
 
+    public Musica(){}
+
     public Musica(String nmMusica, String nmArtista, double duracao, GeneroEnum genero) {
         this.nmMusica = nmMusica;
         this.nmArtista = nmArtista;
@@ -21,7 +23,7 @@ public class Musica {
     }
     public static Musica buscarMusicaPorNome(String nmMusica){
         for (Musica musica : musicas){
-            if (musica.getNmMusica().equalsIgnoreCase(nmMusica)){
+            if (musica.getNmMusica().contains(nmMusica.toLowerCase())){
                 return musica;
             }
         }return null;

@@ -11,7 +11,7 @@ public class Main {
         Scanner leitorStr = new Scanner(System.in);
         Scanner leitorInt = new Scanner(System.in);
 
-        //CRIAR NOVA MUSICA
+        //INSERIR NOVA MUSICA
         while (true) {
             System.out.println("Digite o nome da Musica: ");
             String nmMusica = leitorStr.nextLine();
@@ -43,9 +43,22 @@ public class Main {
         String nmPlaylist = leitorStr.nextLine();
 
         //BUSCAR MUSICA FORA DA PLAYLIST
-        public static Musica buscarMusica
-        System.out.println("Digite o nome da Música para buscar: ");
-        String buscaMusica = leitorStr.nextLine();
+        Musica nomeResultado = new Musica();
+        System.out.println("Digite o nome da musica");
+        String musica = leitorStr.nextLine();
+        nomeResultado = Musica.buscarMusicaPorNome(musica);
+
+        System.out.println("Deseja adicionar a música " + nomeResultado.getNmMusica() + " na playlist? (Y/N)");
+        String resposta = leitorStr.nextLine();
+        if (resposta.equalsIgnoreCase("y")){
+
+
+        }
+
+
+
+
+
 
 
 
