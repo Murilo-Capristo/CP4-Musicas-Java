@@ -10,6 +10,11 @@ public class Playlist {
     public Set<Musica> musicasNaPlaylist = new HashSet<Musica>();
     private static PlaylistManager playlistManager;
 
+    public Playlist(String nmPlaylist, Set<Musica> musicasNaPlaylist){
+        this.nmPlaylist = nmPlaylist;
+        this.musicasNaPlaylist = musicasNaPlaylist;
+    }
+
     public Playlist() {
         if (playlistManager != null) {
             playlistManager.adicionarPlaylist(this);

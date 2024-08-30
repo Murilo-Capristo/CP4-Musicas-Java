@@ -1,3 +1,9 @@
+//1TDSPM
+//Murilo Capristo RM: 556794
+//Enzo Mikael     RM: 558887
+
+
+
 package Tests;
 
 import Enums.GeneroEnum;
@@ -30,7 +36,10 @@ public class Main {
                 "(9) - Listar Músicas\n" +
                 "(10) - Buscar Música\n" +
                 "(11) - Cadastrar uma Música\n" +
-                "(12) - Sair\n" +
+                "(12) - Listar Músicas por playlist por duração\n" +
+                "(13) - Buscar Música por Gênero\n" +
+                "(99) - Sair\n" +
+                "(100) - Cadastrar Músicas teste\n" +
                 "> ";
 
         boolean ligado = true;
@@ -315,10 +324,21 @@ public class Main {
                         }
                         break;
 
-                    case 12:
+                    case 99:
                         System.out.println("Até logo!");
                         ligado = false;
                         break;
+                    case 12:
+                        manager.carregarPlaylist();
+                        manager.exibirPlaylistsPorDuracao();
+                        break;
+                    case 13:
+                        Musica.buscarMusicaporGenero();
+                        break;
+                    case 100:
+                        manager.carregarPlaylist();
+                        break;
+
 
                     default:
                         System.out.println("Opção inválida!");
