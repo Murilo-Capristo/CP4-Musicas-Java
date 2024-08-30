@@ -51,6 +51,7 @@ public class Playlist {
             System.out.println("A música já está nesta playlist.");
         } else {
             this.musicasNaPlaylist.add(musica);
+            this.duracaoTotal += musica.getDuracaoSegundos();
             System.out.println("Música adicionada com sucesso!");
         }
     }
@@ -58,7 +59,7 @@ public class Playlist {
     public void removerMusica(Musica musica) {
         if (this.musicasNaPlaylist.contains(musica)){
             this.musicasNaPlaylist.remove(musica);
-            this.duracaoTotal -= musica.getDuracao();
+            this.duracaoTotal -= musica.getDuracaoSegundos();
         }
     }
 

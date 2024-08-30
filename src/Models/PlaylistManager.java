@@ -16,14 +16,20 @@ public class PlaylistManager {
         if (this.playlists.contains(playlist)) {
             this.playlists.remove(playlist);
             System.out.println("Playlist deletada com sucesso!");
-        } else {
-            System.out.println("Playlist não encontrada.");
         }
     }
 
     public void exibirPlaylists() {
-        for (Playlist playlist : playlists) {
-            System.out.println("- " + playlist.getNmPlaylist() + "\n\tDuração: " + (playlist.getDuracaoTotal()/60));
+        if (this.playlists.size() == 0) {
+            System.out.println("Nenhuma Playlist criada.");
+        } else {
+            System.out.println("*".repeat(35));
+            for (Playlist playlist : playlists) {
+                System.out.println("Playlist: " + playlist.getNmPlaylist());
+                System.out.print("Qtd. Músicas: " + (playlist.musicasNaPlaylist.stream().count()));
+                System.out.println("\t Duração total: " + (playlist.getDuracaoTotal()/60) + "m.");
+                System.out.println("*".repeat(35));
+            }
         }
     }
 
