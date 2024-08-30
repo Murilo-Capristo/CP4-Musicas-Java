@@ -9,6 +9,6 @@ public enum GeneroEnum {
     ROCK,
     INDIE,
     JAZZ,
+    BLUES,
     METAL
-
 }

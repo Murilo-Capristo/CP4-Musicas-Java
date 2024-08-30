@@ -3,34 +3,43 @@ package Models;
 import Enums.GeneroEnum;
 
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 public class Musica {
     private String nmMusica;
     private String nmArtista;
-    private double duracao;
+    private int duracao;
     private GeneroEnum genero;
-    public static Set<Musica> musicas = new HashSet<>() ;
+    public static Set<Musica> musicasCadastradas = new HashSet<>() ;
 
     public Musica(){}
 
-    public Musica(String nmMusica, String nmArtista, double duracao, GeneroEnum genero) {
+    public Musica(String nmMusica, String nmArtista, int  duracao, GeneroEnum genero) {
         this.nmMusica = nmMusica;
         this.nmArtista = nmArtista;
         this.duracao = duracao;
         this.genero = genero;
-        musicas.add(this);
+        musicasCadastradas.add(this);
     }
+
     public static Musica buscarMusicaPorNome(String nmMusica){
-        for (Musica musica : musicas){
-            if (musica.getNmMusica().contains(nmMusica.toLowerCase())){
+        for (Musica musica : musicasCadastradas){
+            if (musica.getNmMusica().toLowerCase().contains(nmMusica.toLowerCase())){
                 return musica;
             }
-        }return null;
+        } return null;
     }
 
+    public void exibirMusica(){
+        System.out.println("*".repeat(30));
+        System.out.println("Nome: " + nmMusica + "\tDuração: " + duracao + "\n\t\tGenero: " + genero);
+        System.out.println("*".repeat(30));
+    }
 
-    public void deletarMusica(){}
+    public void deletarMusica(Musica musica){
+        musicasCadastradas.remove(musica);
+    }
 
     public String getNmMusica() {
         return nmMusica;
