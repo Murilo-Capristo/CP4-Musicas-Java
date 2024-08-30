@@ -329,7 +329,6 @@ public class Main {
                         ligado = false;
                         break;
                     case 12:
-                        manager.carregarPlaylist();
                         manager.exibirPlaylistsPorDuracao();
                         break;
                     case 13:

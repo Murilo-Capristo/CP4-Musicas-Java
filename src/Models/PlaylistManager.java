@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static Models.Musica.musicasCadastradas;
+
 public class PlaylistManager {
     public Set<Playlist> playlists = new HashSet<>();
 
@@ -59,8 +61,8 @@ public class PlaylistManager {
         Musica musica20 = new Musica("Canta Canta Minha Gente", "Zeca Pagodinho", "3m00s", GeneroEnum.SAMBAPAGODE, 180);
 
 
-        var musicasCurtidas = new Playlist("Musicas Curtidas", Set.of(musica1,musica2,musica3));
-        var musicasNaoCurtidas = new Playlist("Músicas não Curtidas", Set.of(musica4, musica5, musica6));
+        var musicasCurtidas = new Playlist("Musicas Curtidas", Set.of(musica1,musica2,musica3,musica4, musica5, musica6,musica7,musica8,musica9,musica10));
+        var musicasNaoCurtidas = new Playlist("Músicas não Curtidas", Set.of(musica11,musica12,musica13,musica14,musica15,musica16,musica17,musica18,musica19,musica20));
         playlists.add(musicasNaoCurtidas);
         playlists.add(musicasCurtidas);}
 
@@ -68,12 +70,16 @@ public class PlaylistManager {
 
 
     public void exibirPlaylistsPorDuracao(){
+        if (!musicasCadastradas.isEmpty()) {
         Set<Musica>dadosMusicas = playlists.stream()
                         .flatMap(p-> p.musicasNaPlaylist.stream()
+                                        .sorted(Comparator.comparing(Musica::getDuracaoSegundos).reversed())
                                 .map(m-> new Musica(p.getNmPlaylist(),m))
-                                        .sorted(Comparator.comparing(Musica::getDuracaoSegundos)))
+                                        )
                                 .collect(Collectors.toSet());
-        dadosMusicas.forEach(System.out::println);
+        dadosMusicas.forEach(System.out::println);} else {
+            System.out.println("Não há músicas cadastradas.");
+        }
 
 
     }
